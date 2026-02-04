@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"><title>Login - Reto 4</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark d-flex align-items-center vh-100">
+    <div class="container card p-4 shadow" style="max-width: 400px;">
+        <h3 class="text-center mb-3">Acceso Privado</h3>
+        <form id="login-form">
+            <input type="text" id="user" class="form-control mb-2" placeholder="Usuario (admin)" required>
+            <input type="password" id="pass" class="form-control mb-3" placeholder="Contraseña (1234)" required>
+            <button class="btn btn-primary w-100">Entrar</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('login-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            if(document.getElementById('user').value === 'admin' && document.getElementById('pass').value === '1234') {
+                localStorage.setItem('auth', 'true');
+                window.location.href = 'index.html';
+            } else { alert('Datos incorrectos'); }
+        });
+    </script>
+</body>
+</html>
